@@ -1,0 +1,19 @@
+<html>
+<head>
+	<!-- LAYOUT single.html.erb (single blog post) -->
+	<%= page_title(@post, 'Ronningen Design', ',') %>
+	<%= meta_tags(:html5 => true) %>
+	<%= description(@post) %>
+	<%= key_phrases(@post) %>
+	<%= render :partial => '/shared/scriptsStylesMeta' %>
+</head>
+<body>
+	<%= render :partial => '/shared/primaryNav' %>
+	
+	<%= render :partial => '/shared/subNav' %>
+	
+	<h1><%= @post.title %></h1>
+	
+	<%= yield %>
+</body>
+</html>

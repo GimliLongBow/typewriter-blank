@@ -1,0 +1,20 @@
+<!-- BEGIN _post.html.erb -->
+<%
+commentCount = post.comments.count
+
+if commentCount == 1
+	commentsLink = "Comment"
+else
+	commentsLink = "Comments"
+end
+%>
+
+<p class="postDate"><%=h post.created_at.to_formatted_s(:basic_timestamp) %></p>
+<h3><%= link_to post.title, blog_path(post) %></h3>
+<div class="post">
+	<div class="postBody"><%= raw post.body %></div>
+	
+	<div class="postFooter">Posted By <%=h post.user.first_name %> at <%=h post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <%= link_to commentsLink, blog_url(post, :anchor => "commentHeading")
+	 %> | <%= mail_to "", "Share This Story", :subject => post.title, :body => "Check it out: http://www.blank.dev/" +  post.friendly_id  %></div>
+</div>
+<!-- END _post.html.erb -->

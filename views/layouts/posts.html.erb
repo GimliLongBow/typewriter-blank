@@ -1,0 +1,16 @@
+<html>
+<head>
+	<!-- LAYOUT posts.html.erb -->
+	<title>Blog</title>
+	<%= meta_tags(:html5 => true) %>
+	<%= render :partial => '/shared/scriptsStylesMeta' %>
+</head>
+<body>
+	<%= render :partial => '/shared/primaryNav' %>
+	<%= render :partial => '/shared/subNav' %>
+	
+	<h1>Blog</h1>
+	
+	<%= yield %>
+</body>
+</html>

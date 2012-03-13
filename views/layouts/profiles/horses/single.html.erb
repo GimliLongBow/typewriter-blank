@@ -1,0 +1,15 @@
+<html>
+<head>
+	<!-- LAYOUT horses/single.html.erb -->
+	<title><%= @profile.name %></title>
+	<%= meta_tags(:html5 => true) %>
+	<%= render :partial => '/shared/scriptsStylesMeta' %>
+</head>
+<body>
+	<%= render :partial => '/shared/primaryNav' %>
+	
+	<%= render :partial => '/shared/subNav' %>
+	
+	<%= yield %>
+</body>
+</html>

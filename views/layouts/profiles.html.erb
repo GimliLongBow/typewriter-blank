@@ -1,0 +1,15 @@
+<html>
+<head>
+	<!-- LAYOUT profiles.html.erb -->
+	<title>Profiles</title>
+	<%= meta_tags(:html5 => true) %>
+	<%= render :partial => '/shared/scriptsStylesMeta' %>
+</head>
+<body>
+	<%= render :partial => '/shared/primaryNav' %>
+	
+	<%= render :partial => '/shared/subNav' %>
+	
+	<%= yield %>
+</body>
+</html>

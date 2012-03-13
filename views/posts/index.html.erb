@@ -1,0 +1,25 @@
+<!-- BEGIN index.html.erb -->
+<% content_for :recentPosts do %>
+	<% recentPosts = current_account.posts.recent_posts(current_account) %>
+	<!-- Cached recent posts. -->
+	<ul>
+		<li>Recent News</li>
+		<%= render :partial => 'recentPosts', :collection => recentPosts, :as => :post %>
+	</ul>
+<% end %>
+
+<% content_for :archives do %>
+	<% months = current_account.posts.find_months(current_account) %>
+	<!-- Cached archives. -->
+	<ul>
+		<li>Archives</li>
+		<%= render :partial => 'archives', :collection => months, :as => :month %>
+	</ul>
+<% end %>
+
+<%= render :partial => @posts %>
+
+<% if @posts.total_pages > 1 %>
+<p>View <%= will_paginate @posts, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> posts.</p>
+<% end %>
+<!-- END index.html.erb -->

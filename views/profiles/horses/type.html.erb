@@ -1,0 +1,9 @@
+<!-- BEGIN horses/type.html.erb (like index.html.erb) -->
+<h2>Profiles</h2>
+
+<%= render :partial => @profiles %>
+
+<% if @profiles.total_pages > 1 %>
+<p>View <%= will_paginate @profiles, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> profiles.</p>
+<% end %>
+<!-- END horses/type.html.erb -->
