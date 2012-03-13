@@ -1,5 +1,68 @@
-body {
-	color:#000;
-	background:#fff;
-	padding:0;
-	margin:0;}
+
+
+/*
+==========================================================================================
+TYPEWRITER - REQUIRED
+==========================================================================================
+*/
+
+/* Image styles. */
+/* ================================================================================== */
+div.left {float:left; margin:9px 15px 15px 0;}
+div.right {float:right; margin:9px 0 15px 15px;}
+div.full {margin:15px 0;}
+div.center{margin:15px 0; text-align:center;}
+
+div.left img,
+div.right img,
+div.full img,
+div.center img {margin:0;}
+
+
+/* Comment styles. */
+/* ================================================================================== */
+.single #addComment {float:right; margin:0 14px 20px 0; width:200px;}
+
+.single #addComment #comment_body,
+.single #addComment #comment_email,
+.single #addComment #comment_author {margin:5px 0; width:200px;}
+.single #addComment #comment_body {height:200px;}
+.single #addComment h4 {margin:0; font-size:14px;}
+
+#commentHeading {}
+
+.single #comments {width:300px; margin:0 0 0 15px; padding:0; list-style:none;}
+
+#comments li#commentSubmited,
+#comments li#commentRejected {display:none; padding:20px 20px 0 20px;}
+#comments li#noComments {border-bottom:0;}
+#comments li#commentRejected {background:#BB2828; color:#fff;}
+#comments li#commentSubmited {background:#9D7424; color:#fff;}
+
+#comments li.comment {}
+#comments li.comment small.commentmetadata  {}
+
+/* Comment errors. */
+/* ================================================================================== */
+#addComment input.error,
+#addComment textarea.error {
+	padding:3px;
+	border:1px solid #f00;
+	margin-bottom:0 !important;}
+
+#addComment label.error {
+	display:inline-block;
+	padding:3px 5px;
+	margin-bottom:12px;
+	color:#fff;
+	background:#f00;
+	-moz-border-radius-bottomleft:3px;
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-left-radius:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-radius-bottomleft:3px;
+	border-radius-bottomright:3px;
+	text-shadow:#666 1px 1px 1px;
+	font-size:80%;}
+
+/* ================================================================================== */
