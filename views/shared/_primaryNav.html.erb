@@ -1,9 +1,9 @@
 <!-- BEGIN _primaryNav.html.erb -->
 <div id="primaryNav">
 	<ul>
-		<li><a href="/" title="">Home</a></li>
-		<li><a href="/blog/" title="">Blog</a></li>
-		<li><a href="/profiles/" title="">Profiles</a></li>
+	<% current_account.pages.roots.each do |page| %>
+		<li><%= link_to_path page.title, page %></li>
+	<% end %>
 	</ul>
 </div>
 <!-- END _primaryNav.html.erb -->

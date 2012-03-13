@@ -7,7 +7,7 @@
 	<%= key_phrases(@post) %>
 	<%= render :partial => '/shared/scriptsStylesMeta' %>
 </head>
-<body>
+<body id="<%= @post.friendly_id %>" class="<%= @current_action %> <%= @current_controller %>">
 	<%= render :partial => '/shared/primaryNav' %>
 	
 	<%= render :partial => '/shared/subNav' %>

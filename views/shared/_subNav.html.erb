@@ -1,7 +1,15 @@
 <!-- BEGIN _subNav.html.erb -->
-<div id="subNav">
-	<ul>
-		<li><a href="#" title="">Subnav</a></li>
-	</ul>
-</div>
+<ul class="subNav">
+<% if !@page.new_record? and @page.has_children? # It's a root page, get children. %>
+	<%= render :partial => "subNav", :collection => @page.published_children, :as => :child %>
+<% elsif @page.parent != nil && @page.has_siblings? # It's a subpage, get siblings %>
+	<%= render :partial => "subNav", :collection => @page.siblings.published.sort! { |a,b| a.order <=> b.order }, :as => :child %>
+<% elsif @page.parent != nil && @page.is_only_child? # Link to self %>
+	<li><%= link_to @page.title, @page %></li>
+<% else # Fallback! Blog, profiles, whatever else %>
+	<li>List</li>
+	<li>Subnav</li>
+	<li>Here</li>
+<% end %>
+</ul>
 <!-- END _subNav.html.erb -->

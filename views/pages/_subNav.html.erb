@@ -1,0 +1,9 @@
+<%
+classes = ''
+
+if @page.ancestor_ids.include?(child.id) || @page.id == child.id
+	classes = classes + 'current '
+end
+
+%>
+<li class="<%= "#{classes}subNav_#{child_counter} #{child.depth}" %>"><%= link_to_path( child.title, child) %><% if child.has_children? %><ul class="subSub"><%= render :partial => "subNav", :collection => child.published_children, :as => :child %></ul><% end %></li>

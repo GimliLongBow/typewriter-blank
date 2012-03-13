@@ -5,7 +5,7 @@
 	<%= meta_tags(:html5 => true) %>
 	<%= render :partial => '/shared/scriptsStylesMeta' %>
 </head>
-<body>
+<body class="<%= @current_action %> <%= @current_controller %>">
 	<%= render :partial => '/shared/primaryNav' %>
 	<%= render :partial => '/shared/subNav' %>
 	

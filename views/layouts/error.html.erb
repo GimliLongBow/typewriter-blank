@@ -1,0 +1,25 @@
+<%
+case @status
+when '404'
+	message = 'Page Not Found'
+when '501'
+	message = 'Server error.'
+end
+%><!DOCTYPE html>
+<html lang="en">
+<head>
+	<title><%= @status %> - A Systemic Problem | Camp Name Here </title>
+	<%= render :partial => '/shared/scriptsStylesMeta' %>
+</head>
+<body id="error">
+
+	<%= render :partial => '/shared/primaryNav' %>
+	
+	<%= render :partial => '/shared/subNav' %>
+
+	<h1>That's a <%= @status %> - <%= message %></h1>
+	<p>Sorry about that. May we suggest the <a href="/">home page</a> or <a href="/site-map">site map</a>?</p>
+
+	<%= yield %>
+</body>
+</html>
