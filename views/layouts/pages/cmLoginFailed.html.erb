@@ -26,15 +26,12 @@
 	</script>
 </head>
 <body id="<%= @id %>">
-	<%= render :partial => '/shared/primaryNav' %>
-	
-	<%= render :partial => '/shared/subNav' %>
-	
-	<h1><%= @page.title %></h1>
-	
+	<%= render :partial => '/shared/header' %>
+
+	<%= render :partial => '/shared/aside' %>
+
 	<%= yield %>
-	
-	
+
 	<div id="retrievePassword" style="display:none;">
 		<h1>Forgot Password</h1>
 
@@ -68,5 +65,7 @@
 			<input id="login_btn" type="submit" value="submit" name="Submit">
 		</form>
 	</div>
+
+	<%= yield :footer %>
 </body>
 </html>

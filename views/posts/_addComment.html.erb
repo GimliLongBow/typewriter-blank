@@ -1,19 +1,19 @@
 <!-- BEGIN _addComment.html.erb -->
-<div>
-<%= form_for(@comment) do |f| %>
-	<%= f.error_messages %>
-	<%= hidden_field_tag :post_id, post.id %>
+	<div id="commentForm">
+		<%= form_for(@comment) do |f| %>
+			<%= f.error_messages %>
+			<%= hidden_field_tag :post_id, post.id %>
 
-	<h4>Post a Comment</h4>
-	<%= f.text_area :body, :class => 'required' %>
+			<h4>Post a Comment</h4>
+			<%= f.text_area :body, :class => 'required' %>
 
-	<h4>Name</h4>
-	<%= f.text_field :author, :class => 'required' %>
+			<h4>Name</h4>
+			<%= f.text_field :author, :class => 'required' %>
 
-	<h4>Email</h4>
-	<%= f.text_field :email, :class => 'required email' %>
+			<h4>Email</h4>
+			<%= f.text_field :email, :class => 'required email' %>
 
-	<%= f.submit 'Submit Comment' %>
-<% end %>
-</div>
-<!-- END _addComment.html.erb -->
+			<%= f.submit 'Submit Comment' %>
+		<% end %>
+	</div>
+	<!-- END _addComment.html.erb -->

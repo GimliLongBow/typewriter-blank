@@ -17,7 +17,9 @@
 	</ul>
 <% end %>
 
-<h2>Archives for <%= @date.strftime("%B, %Y") %></h2>
+	<section id="primary_content">
+		<h2>Archives for <%= @date.strftime("%B, %Y") %></h2>
 
-<%= render :partial => @posts %>
-<!-- END archives.html.erb -->
+		<%= render :partial => @posts %>
+	</section>
+	<!-- END archives.html.erb -->

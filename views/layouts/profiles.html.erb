@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<!-- LAYOUT profiles.html.erb -->
 	<title>Profiles</title>
@@ -6,10 +7,12 @@
 	<%= render :partial => '/shared/scriptsStylesMeta' %>
 </head>
 <body class="<%= @current_action %> <%= @current_controller %>">
-	<%= render :partial => '/shared/primaryNav' %>
-	
-	<%= render :partial => '/shared/subNav' %>
-	
+	<%= render :partial => '/shared/header' %>
+
+	<%= render :partial => '/shared/aside' %>
+
 	<%= yield %>
+
+	<%= yield :footer %>
 </body>
 </html>
