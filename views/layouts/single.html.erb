@@ -6,17 +6,21 @@
 	<%= meta_tags(:html5 => true) %>
 	<%= description(@post) %>
 	<%= key_phrases(@post) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body id="<%= @post.friendly_id %>" class="<%= @current_action %> <%= @current_controller %>">
-	<%= render :partial => '/shared/header' %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
 
-	<%= render :partial => '/shared/aside' %>
+		<%= render :partial => '/shared/aside' %>
 
-	<h1><%= @post.title %></h1>
+		<h1><%= @post.title %></h1>
 
-	<%= yield %>
+		<section class="global">
+			<%= yield %>
+		</section>
 
-	<%= yield :footer %>
+		<%= render :partial => '/shared/scripts' %>
+	</div>
 </body>
 </html>

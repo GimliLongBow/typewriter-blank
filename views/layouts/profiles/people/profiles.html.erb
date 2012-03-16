@@ -3,15 +3,19 @@
 	<!-- LAYOUT people/profiles.html.erb -->
 	<title>Profiles</title>
 	<%= meta_tags(:html5 => true) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body>
-	<%= render :partial => '/shared/header' %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
 
-	<%= render :partial => '/shared/aside' %>
+		<%= render :partial => '/shared/aside' %>
 
-	<%= yield %>
+		<section class="global">
+			<%= yield %>
+		</section>
 
-	<%= yield :footer %>
+		<%= render :partial => '/shared/scripts' %>
+	</div>
 </body>
 </html>

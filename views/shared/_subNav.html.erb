@@ -1,17 +1,19 @@
-<!-- BEGIN _subNav.html.erb -->
-		<nav class="subNav">
-			<ul>
-			<% if !@page.new_record? and @page.has_children? # It's a root page, get children. %>
-				<%= render :partial => "subNav", :collection => @page.published_children, :as => :child %>
-			<% elsif @page.parent != nil && @page.has_siblings? # It's a subpage, get siblings %>
-				<%= render :partial => "subNav", :collection => @page.siblings.published.sort! { |a,b| a.order <=> b.order }, :as => :child %>
-			<% elsif @page.parent != nil && @page.is_only_child? # Link to self %>
-				<li><%= link_to @page.title, @page %></li>
-			<% else # Fallback! Blog, profiles, whatever else %>
-				<li><a href="#">List</a></li>
-				<li><a href="#">Subnav</a></li>
-				<li><a href="#">Here</a></li>
-			<% end %>
-			</ul>
-		</nav>
-		<!-- END _subNav.html.erb -->
+<!-- BEGIN shared/_subNav.html.erb -->
+<nav class="subNav">
+	<!-- NICK SAYS: "Pull out all of the line breaks and tabs after the logic has been worked out." -->
+	<ul>
+	<% if !@page.new_record? and @page.has_children? # It's a root page, get children. %>
+		<%= render :partial => "subNav", :collection => @page.published_children, :as => :child %>
+	<% elsif @page.parent != nil && @page.has_siblings? # It's a subpage, get siblings %>
+		<%= render :partial => "subNav", :collection => @page.siblings.published.sort! { |a,b| a.order <=> b.order }, :as => :child %>
+	<% elsif @page.parent != nil && @page.is_only_child? # Link to self %>
+		<li><%= link_to @page.title, @page %></li>
+	<% else # Fallback! Blog, profiles, whatever else %>
+		<li><a href="#">List</a></li>
+		<li><a href="#">Subnav</a></li>
+		<li><a href="#">Here</a></li>
+	<% end %>
+	</ul>
+	<!-- Did you read what Nick says? -->
+</nav>
+<!-- END shared/_subNav.html.erb -->

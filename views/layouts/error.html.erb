@@ -9,7 +9,7 @@ end
 <html lang="en">
 <head>
 	<title><%= @status %> - A Systemic Problem | Camp Name Here </title>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body id="error">
 	<%= render :partial => '/shared/header' %>
@@ -19,8 +19,10 @@ end
 	<h1>That's a <%= @status %> - <%= message %></h1>
 	<p>Sorry about that. May we suggest the <a href="/">home page</a> or <a href="/site-map">site map</a>?</p>
 
-	<%= yield %>
+	<section class="global">
+		<%= yield %>
+	</section>
 
-	<%= yield :footer %>
+	<%= render :partial => '/shared/scripts' %>
 </body>
 </html>

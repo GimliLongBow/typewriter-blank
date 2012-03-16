@@ -1,9 +1,6 @@
-<!-- BEGIN _primaryNav.html.erb -->
-	<nav id="primaryNav">
-		<ul>
-		<% current_account.pages.roots.each do |page| %>
-			<li><%= link_to_path page.title, page %></li>
-		<% end %>
-		</ul>
-	</nav>
-	<!-- END _primaryNav.html.erb -->
+<!-- BEGIN shared/_primaryNav.html.erb -->
+<nav id="primaryNav">
+	<ul><% current_account.pages.roots.each do |page| %><li><%= link_to_path page.title, page %></li><% end %></ul>
+	<div class="clear"></div>
+</nav>
+<!-- END shared/_primaryNav.html.erb -->

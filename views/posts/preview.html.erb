@@ -1,9 +1,12 @@
-<!-- BEGIN _preview.html.erb -->
-	<!-- Copy of _single.html.erb with date and user elements removed. -->
-	<article>
+<!-- BEGIN posts/preview.html.erb -->
+<!-- Copy of _single.html.erb with date and user elements removed. -->
+<article>
+	<header>
 		<p class="postDate">January 1st, 2012</p>
 		<h3><%= post.title %></h3>
-		<%= raw post.body %>
+	</header>
+	<%= raw post.body %>
+	<footer>
 		<%
 		tags = post.tags_from(current_account)
 		unless tags.empty? %>
@@ -13,7 +16,7 @@
 			<% end %>
 		</p>
 		<% end %>
-
-		<footer><p>Posted By <%=h post.user.first_name %> at 7am</p></footer>
-	</article>
-	<!-- END _preview.html.erb -->
+		<p>Posted By <%=h post.user.first_name %> at 7am</p>
+	</footer>
+</article>
+<!-- END posts/preview.html.erb -->

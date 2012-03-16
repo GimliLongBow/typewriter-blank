@@ -1,5 +1,5 @@
-<!-- BEGIN _post.html.erb -->
-	<article>
+<!-- BEGIN posts/_post.html.erb -->
+<article>
 	<%
 	commentCount = post.comments.count
 
@@ -9,14 +9,24 @@
 		commentsLink = "Comments"
 	end
 	%>
-
+	<header>
 		<p class="postDate"><%=h post.created_at.to_formatted_s(:basic_timestamp) %></p>
 		<h3><%= link_to post.title, blog_path(post) %></h3>
-		<%= raw post.body %>
+	</header>
 
-		<footer>
-			<p>Posted By <%=h post.user.first_name %> at <%=h post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <%= link_to commentsLink, blog_url(post, :anchor => "commentHeading")
-		 %> | <%= mail_to "", "Share This Story", :subject => post.title, :body => "Check it out: http://www.blank.dev/" +  post.friendly_id  %></p>
-		 </footer>
-	</article>
-	<!-- END _post.html.erb -->
+	<%= raw post.body %>
+
+	<footer>
+		<%
+		tags = post.tags_from(current_account)
+		unless tags.empty? %>
+		<p>tags
+			<% tags.each do |tag| %>
+			<a href="/blog/tagged/<%= to_permalink(tag) %>"><%= tag %></a>
+			<% end %></p>
+		<% end %>
+		<p>Posted By <%=h post.user.first_name %> at <%=h post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <%= link_to commentsLink, blog_url(post, :anchor => "commentHeading")
+	 %> | <%= mail_to "", "Share This Story", :subject => post.title, :body => "Check it out: http://www.blank.dev/" +  post.friendly_id  %></p>
+	 </footer>
+</article>
+<!-- END posts/_post.html.erb -->

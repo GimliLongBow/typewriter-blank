@@ -1,5 +1,7 @@
-<!-- BEGIN _aside.html.erb -->
-	<aside>
-		<%= render :partial => '/shared/subNav' %>
-	</aside>
-	<!-- END _aside.html.erb -->
+<!-- BEGIN shared/_aside.html.erb -->
+<aside class="global">
+	<% unless @page.nil? %>
+	<%= render :partial => '/shared/subNav' %>
+	<% end %>
+</aside>
+<!-- END shared/_aside.html.erb -->

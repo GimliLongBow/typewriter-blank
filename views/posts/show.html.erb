@@ -1,4 +1,4 @@
-<!-- BEGIN show.html.erb -->
+<!-- BEGIN posts/show.html.erb -->
 <% content_for :recentPosts do %>
 	<% recentPosts = current_account.posts.recent_posts(current_account) %>
 	<!-- Cached recent posts. -->
@@ -17,9 +17,9 @@
 	</ul>
 <% end %>
 
-
-<% content_for :head do %>
-	<%= javascript_include_tag 'comments' %>
+<% content_for :footer do %>
+<!-- page spesific -->
+<%= javascript_include_tag 'comments' %>
 <% end %>
 
 <%
@@ -31,37 +31,19 @@ else
 	commentsLink = "Comments"
 end
 %>
+<%= render :partial => @post %>
 
-	<article>
-		<p class="postDate"><%=h @post.created_at.to_formatted_s(:basic_timestamp) %></p>
-		<h3><%= @post.title %></h3>
-		<%= raw @post.body %>
+<h3>Comments</h3>
+<%= render :partial => 'addComment', :locals => { :comment => @comment, :post => @post } %>
 
-		<%
-		tags = @post.tags_from(current_account)
-		unless tags.empty? %>
-		<p>tags
-			<% tags.each do |tag| %>
-			<a href="/blog/tagged/<%= to_permalink(tag) %>"><%= tag %></a>
-			<% end %>
-		</p>
-		<% end %>
-
-		<footer><p>Posted By <%=h @post.user.first_name %> at <%=h @post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <a href="#commentHeading"><%= commentsLink %></a> |
-		<%= mail_to "", "Share This Story", :subject => @post.title, :body => "Check it out: http://www.blank.dev/" + @post.friendly_id.to_s  %></p></footer>
-	</article>
-
-	<h3>Comments</h3>
-	<%= render :partial => 'addComment', :locals => { :comment => @comment, :post => @post } %>
-
-	<ol id="comments">
-		<li id="commentSubmited">Your comment was submitted! Once it's been approved it will appear here.</li>
-	<%=
-	if commentCount == 0
-		render :partial => 'noComments'
-	else
-		render :partial => 'comment', :collection => post.comments, :as => :comment
-	end
-	%>
-	</ol>
-	<!-- END show.html.erb -->
+<ol id="comments">
+	<li id="commentSubmited">Your comment was submitted! Once it's been approved it will appear here.</li>
+<%=
+if commentCount == 0
+	render :partial => 'noComments'
+else
+	render :partial => 'comment', :collection => post.comments, :as => :comment
+end
+%>
+</ol>
+<!-- END posts/show.html.erb -->

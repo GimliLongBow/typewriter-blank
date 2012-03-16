@@ -1,4 +1,4 @@
-<!-- BEGIN archives.html.erb -->
+<!-- BEGIN posts/archives.html.erb -->
 <% content_for :recentPosts do %>
 	<% recentPosts = current_account.posts.recent_posts(current_account) %>
 	<!-- Cached recent posts. -->
@@ -17,9 +17,7 @@
 	</ul>
 <% end %>
 
-	<section id="primary_content">
-		<h2>Archives for <%= @date.strftime("%B, %Y") %></h2>
+<h2>Archives for <%= @date.strftime("%B, %Y") %></h2>
 
-		<%= render :partial => @posts %>
-	</section>
-	<!-- END archives.html.erb -->
+<%= render :partial => @posts %>
+<!-- END posts/archives.html.erb -->

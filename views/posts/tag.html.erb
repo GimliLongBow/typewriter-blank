@@ -1,4 +1,4 @@
-<!-- BEGIN tag.html.erb -->
+<!-- BEGIN posts/tag.html.erb -->
 <% content_for :recentPosts do %>
 	<% recentPosts = current_account.posts.recent_posts(current_account) %>
 	<!-- Cached recent posts. -->
@@ -17,11 +17,9 @@
 	</ul>
 <% end %>
 
-	<section id="primary_content">
-		<%= render :partial => @posts %>
+<%= render :partial => @posts %>
 
-		<% if @posts.total_pages > 1 %>
-		<p>View <%= will_paginate @posts, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> posts.</p>
-		<% end %>
-	</section>
-	<!-- END tag.html.erb -->
+<% if @posts.total_pages > 1 %>
+<p>View <%= will_paginate @posts, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> posts.</p>
+<% end %>
+<!-- END posts/tag.html.erb -->

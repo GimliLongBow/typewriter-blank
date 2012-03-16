@@ -4,17 +4,21 @@
 	<!-- LAYOUT horses/profiles.html.erb -->
 	<%= page_title(@page, 'Ronningen Design', ',') %>
 	<%= meta_tags(:html5 => true) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body>
-	<%= render :partial => '/shared/header' %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
 
-	<%= render :partial => '/shared/aside' %>
+		<%= render :partial => '/shared/aside' %>
 
-	<h1><%= @page.title %></h1>
+		<h1><%= @page.title %></h1>
 
-	<%= yield %>
+		<section class="global">
+			<%= yield %>
+		</section>
 
-	<%= yield :footer %>
+		<%= render :partial => '/shared/scripts' %>
+	</div>
 </body>
 </html>

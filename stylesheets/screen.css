@@ -22,6 +22,93 @@ table {
 
 /*
 ==========================================================================================
+BOILER PLATE
+==========================================================================================
+*/
+
+body {
+	background:url(/themes/typewriter-blank/images/bg.jpg) 0 0 no-repeat fixed;
+	background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:100% cover;
+    font-family:Helvetica, Arial, sans-serif;
+	}
+
+header.global,
+aside.global,
+section.global,
+footer.global {
+	width:600px;
+	padding:20px;
+	margin:0 auto;
+	}
+
+header.global {
+	background: #4596e2;
+	}
+	header.global nav {
+		background: #9ecefb;
+		}
+		header.global nav ul {
+			list-style: none;
+			}
+			header.global nav ul li {
+				float: left;
+				}
+				header.global nav ul li a {
+					display:block;
+					padding:12px 15px;
+					color: #135899;
+					text-decoration: none;
+					}
+
+aside.global {
+	background: #135899;
+	color:#fff;
+	}
+	aside.global nav {
+		background: #9ecefb;
+		}
+		aside.global nav ul {
+			list-style: none;
+			}
+			aside.global nav ul li {
+				}
+				aside.global nav ul li a {
+					display:block;
+					padding:12px 15px;
+					color: #135899;
+					text-decoration: none;
+					}
+
+
+section.global {
+	background: #fff;
+	}
+
+footer.global {
+	background: #4596e2;
+	}
+	footer.global nav {
+		background: #9ecefb;
+		}
+		footer.global nav ul {
+			list-style: none;
+			}
+			footer.global nav ul li {
+				float: left;
+				}
+				footer.global nav ul li a {
+					display:block;
+					padding:12px 15px;
+					color: #135899;
+					text-decoration: none;
+					}
+
+.clear {clear:both;}
+
+/*
+==========================================================================================
 TYPEWRITER - REQUIRED
 ==========================================================================================
 */
