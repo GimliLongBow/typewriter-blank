@@ -32,7 +32,7 @@ body {
     -moz-background-size:cover;
     -webkit-background-size:100% cover;
     font-family:Helvetica, Arial, sans-serif;
-    color:#3c1a00;
+    color:#111;
 	}
 
 #wrapper {
@@ -56,9 +56,9 @@ header.global {
 	header.global nav {
 		background: #9ecefb;
 		height:41px;
-		-moz-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
-		-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
-		box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
 		}
 		header.global nav ul {
 			list-style: none;
@@ -73,22 +73,21 @@ header.global {
 section.global {
 	float:right;
 	width:65.8%;
-	padding:2.1%;
-	background: #f38b3e;
+	padding:2.12%;
+	background-color:#fff;
+ 	background:url(/themes/typewriterdemo/images/insetTop.png) repeat-x rgba(255,255,255,.6);
 	}
 
 
 aside.global {
 	width:25.8%;
-	padding:2.1%;
-	background: #135899;
+	padding:2.1% 2.1% 0 2.1%;
+ 	background: url(/themes/typewriterdemo/images/darkBlueFuzz.png) 0 0 #135899;
 	color:#fff;
 	}
 	aside.global nav {
 		background: #9ecefb;
-		-moz-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
-		-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
-		box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		margin:0 0 5% 0;
 		}
 		aside.global nav ul {
 			list-style: none;
@@ -106,9 +105,9 @@ footer.global {
 	footer.global nav {
 		background: #9ecefb;
 		height:41px;
-		-moz-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
-		-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
-		box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
 		}
 		footer.global nav ul {
 			list-style: none;
@@ -194,25 +193,26 @@ TEXT and RELATED
 h1 {
 	font-size:3em;
 	margin:0 0 .5em;
-	-webkit-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
-	-moz-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
-	text-shadow:-1px 1px 0 rgba(255,255,255,.4);
 	font-weight:bold;
+	color:#c4402a;
 	}
 
 h2 {
 	font-size:2em;
 	margin:0 0 .5em;
+	color:#c4402a;
 	}
 
 h3 {
 	font-size:1.4em;
 	margin:0 0 .5em;
+	color:#c4402a;
 	}
 
 h4 {
 	font-size:1.1em;
 	margin:0 0 .5em;
+	color:#c4402a;
 	}
 
 p {
