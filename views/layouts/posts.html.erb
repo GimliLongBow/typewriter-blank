@@ -7,16 +7,20 @@
 	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body class="<%= @current_action %> <%= @current_controller %>">
-	<%= render :partial => '/shared/header' %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
 
-	<%= render :partial => '/shared/aside' %>
+		<section class="global">
+			<h1>Blog</h1>
 
-	<h1>Blog</h1>
+			<%= yield %>
+		</section>
 
-	<section class="global">
-		<%= yield %>
-	</section>
+		<%= render :partial => '/shared/aside' %>
 
-	<%= render :partial => '/shared/scripts' %>
+		<%= render :partial => '/shared/footer' %>
+
+		<%= render :partial => '/shared/scripts' %>
+	</div><!-- end #wrapper -->
 </body>
 </html>

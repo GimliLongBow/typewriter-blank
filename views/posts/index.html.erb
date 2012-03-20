@@ -17,9 +17,11 @@
 	</ul>
 <% end %>
 
-<%= render :partial => @posts %>
+<div id="postListing"><%= render :partial => @posts %></div>
 
 <% if @posts.total_pages > 1 %>
-<p>View <%= will_paginate @posts, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> posts.</p>
+<div id="pagination">
+	<p>View <%= will_paginate @posts, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> posts.</p>
+</div>
 <% end %>
 <!-- END posts/index.html.erb -->

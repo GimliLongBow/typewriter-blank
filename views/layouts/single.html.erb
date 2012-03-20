@@ -12,13 +12,15 @@
 	<div id="wrapper">
 		<%= render :partial => '/shared/header' %>
 
-		<%= render :partial => '/shared/aside' %>
-
-		<h1><%= @post.title %></h1>
-
 		<section class="global">
+			<h1><%= @post.title %></h1>
+
 			<%= yield %>
 		</section>
+
+		<%= render :partial => '/shared/aside' %>
+
+		<%= render :partial => '/shared/footer' %>
 
 		<%= render :partial => '/shared/scripts' %>
 	</div>

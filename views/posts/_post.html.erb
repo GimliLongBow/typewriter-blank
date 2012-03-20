@@ -10,8 +10,8 @@
 	end
 	%>
 	<header>
-		<p class="postDate"><%=h post.created_at.to_formatted_s(:basic_timestamp) %></p>
 		<h3><%= link_to post.title, blog_path(post) %></h3>
+		<p class="postDate"><%=h post.created_at.to_formatted_s(:basic_timestamp) %></p>
 	</header>
 
 	<%= raw post.body %>

@@ -16,8 +16,12 @@
 	<% end %>
 <% else %>
 	<% parent.published_children.each do |page| %>
-		<% if page.friendly_id == @page.friendly_id || @page.ancestor_ids.include?(page.id)
-			current = 'current'
+		<% unless @page.nil?
+			if page.friendly_id == @page.friendly_id || @page.ancestor_ids.include?(page.id)
+				current = 'current'
+			else
+				current = ''
+			end
 		else
 			current = ''
 		end

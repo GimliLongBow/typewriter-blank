@@ -1,8 +1,11 @@
 <!-- BEGIN shared/_scripts.html.erb -->
 <!-- Libraries -->
-<%= theme_javascript_include_tag 'libraries/jquery', 'libraries/modernizr', 'libraries/swfobject' %>
+<% #enable these as needed %>
+<%= theme_javascript_include_tag 'libraries/jquery' %>
+<% theme_javascript_include_tag 'libraries/jquery', 'libraries/modernizr', 'libraries/swfobject' %>
 <!-- Theme support. -->
-<%= theme_javascript_include_tag 'theBeesKnees' %>
+<% #enable these as needed %>
+<% theme_javascript_include_tag 'theBeesKnees' %>
 <%= raw(google_analytics) %>
 
 <%= yield :footer %>

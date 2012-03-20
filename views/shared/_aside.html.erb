@@ -1,7 +1,9 @@
 <!-- BEGIN shared/_aside.html.erb -->
 <aside class="global">
-	<% unless @page.nil? %>
+	<% if @page.nil? == false %>
 	<%= render :partial => '/shared/subNav' %>
+	<% elsif @posts.nil? == false || @post.nil? == false %>
+	<%= render :partial => '/shared/subNav_news' %>
 	<% end %>
 </aside>
 <!-- END shared/_aside.html.erb -->
