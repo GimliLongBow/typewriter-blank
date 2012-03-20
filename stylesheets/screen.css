@@ -47,7 +47,7 @@ footer.global {
 	}
 
 header.global {
-	background: #4596e2;
+	background:url(/themes/typewriterdemo/images/blueFuzz.png) 0 0 #4596e2;
 	}
 	header.global a#logo {
 		display:block;
@@ -55,6 +55,10 @@ header.global {
 		}
 	header.global nav {
 		background: #9ecefb;
+		height:41px;
+		-moz-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
 		}
 		header.global nav ul {
 			list-style: none;
@@ -68,20 +72,23 @@ header.global {
 
 section.global {
 	float:right;
-	width:65.843333333%;
-	padding:2.083333333333333%;
+	width:65.8%;
+	padding:2.1%;
 	background: #f38b3e;
 	}
 
 
 aside.global {
-	width:25.833333333%;
-	padding:2.083333333333333%;
+	width:25.8%;
+	padding:2.1%;
 	background: #135899;
 	color:#fff;
 	}
 	aside.global nav {
 		background: #9ecefb;
+		-moz-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
 		}
 		aside.global nav ul {
 			list-style: none;
@@ -94,10 +101,14 @@ aside.global {
 
 footer.global {
 	clear:both;
-	background: #4596e2;
+	background:url(/themes/typewriterdemo/images/blueFuzz.png) 0 0 #4596e2;
 	}
 	footer.global nav {
 		background: #9ecefb;
+		height:41px;
+		-moz-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 0 rgba(0,0,0,.5);
 		}
 		footer.global nav ul {
 			list-style: none;
@@ -111,14 +122,82 @@ footer.global {
 .clear {clear:both;}
 
 
+
+/*
+==========================================================================================
+NAVIGATION
+==========================================================================================
+*/
+
+nav ul {
+	position:relative;
+	background: #9ecefb;
+	z-index:3;
+	}
+	nav ul li {
+		position:relative;
+		}
+		nav ul ul {
+			display:none;
+			}
+			nav ul ul li,
+			aside ul > li {
+				float:none !important;
+				border-bottom:1px dotted #eef7ff;
+				}
+			nav ul ul li:last-child,
+			aside ul > li:last-child {border-bottom:none;}
+	nav ul > li:hover > ul {
+		display:block;
+		position:absolute;
+		top:41px;
+		left:0px;
+		min-width:230px;
+		padding:0;
+		-moz-box-shadow: 0 3px 2px rgba(0,0,0,.4);
+		-webkit-box-shadow: 0 3px 2px rgba(0,0,0,.4);
+		box-shadow: 0 3px 3px rgba(0,0,0,.4);
+		background-color: #9ECEFB;
+		}
+		nav ul > li:hover > ul > li:hover ul {
+			top:0;
+			left:230px;
+			-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+			-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+			box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+			background-color: #9ECEFB;
+			}
+			nav ul > li:hover > ul > li:hover ul li,
+			aside ul > li ul > li:last-child {border-left:1px dotted #eef7ff}
+
+	aside nav ul {position: static;}
+	aside nav ul > li:hover > ul {
+		display:block;
+		position:absolute;
+		top:0;
+		left:258px;
+		-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+		-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+		box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+		}
+
+nav li.hasKids > a {
+	background:url(/themes/typewriterdemo/images/hasKids.png) right center no-repeat;
+	}
+
 /*
 ==========================================================================================
 TEXT and RELATED
 ==========================================================================================
 */
+
 h1 {
 	font-size:3em;
 	margin:0 0 .5em;
+	-webkit-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	-moz-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	font-weight:bold;
 	}
 
 h2 {
@@ -149,10 +228,15 @@ nav ul li a {
 	font-variant:small-caps;
 	text-decoration: none;
 	color: #135899;
+	-webkit-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	-moz-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
 	text-shadow:-1px 1px 0 rgba(255,255,255,.4);
 	}
-	nav ul li a:hover {
+	nav ul li a:hover,
+	nav ul li.current > a {
 		color:#fff;
+		-webkit-text-shadow:-1px 1px 0 rgba(0,0,0,.4);
+		-moz-text-shadow:-1px 1px 0 rgba(0,0,0,.4);
 		text-shadow:-1px 1px 0 rgba(0,0,0,.4);
 		}
 

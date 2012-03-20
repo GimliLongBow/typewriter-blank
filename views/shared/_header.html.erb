@@ -1,6 +1,9 @@
 <!-- BEGIN shared/_header.html.erb -->
 <header class="global">
 	<a href="/" id="logo"><img src="/themes/typewriterdemo/images/logo.png" alt="{{site name}}" /></a>
-	<%= render :partial => '/shared/primaryNav' %>
+	<nav id="primaryNav">
+	<ul><%= render :partial => '/shared/primaryNav', :locals => { :nested => true } %></ul>
+	<div class="clear"></div>
+	</nav>
 </header>
 <!-- END shared/_header.html.erb -->

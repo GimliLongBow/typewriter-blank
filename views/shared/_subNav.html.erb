@@ -7,7 +7,7 @@
 	<% elsif @page.parent != nil && @page.has_siblings? # It's a subpage, get siblings %>
 		<%= render :partial => "subNav", :collection => @page.siblings.published.sort! { |a,b| a.order <=> b.order }, :as => :child %>
 	<% elsif @page.parent != nil && @page.is_only_child? # Link to self %>
-		<li><%= link_to @page.title, @page %></li>
+		<li class="current"><%= link_to @page.title, @page %></li>
 	<% else # Fallback! Blog, profiles, whatever else %>
 		<li><a href="#">List</a></li>
 		<li><a href="#">Subnav</a></li>
