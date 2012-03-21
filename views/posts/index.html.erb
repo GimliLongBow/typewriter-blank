@@ -17,11 +17,6 @@
 	</ul>
 <% end %>
 
-<% content_for :footer do %>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f6a216627f69242"></script>
-<% end %>
-
 <div id="postListing"><%= render :partial => @posts %></div>
 
 <% if @posts.total_pages > 1 %>

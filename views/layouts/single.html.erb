@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 	<!-- LAYOUT single.html.erb (single blog post) -->
 	<%= page_title(@post, 'Ronningen Design', ',') %>
@@ -24,5 +24,13 @@
 
 		<%= render :partial => '/shared/scripts' %>
 	</div>
+
+	<script type="text/javascript">
+		var addthis_config = {
+			"data_track_addressbar": true,
+			data_ga_property: '<%= current_account.ga_profile %>',
+			data_ga_social: true
+		};</script>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f6a216627f69242"></script>
 </body>
 </html>
