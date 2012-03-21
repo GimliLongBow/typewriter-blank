@@ -27,6 +27,14 @@
 		<% end %>
 		<p>Posted By <%=h post.user.first_name %> at <%=h post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <%= link_to commentsLink, blog_url(post, :anchor => "commentHeading")
 	 %> | <%= mail_to "", "Share This Story", :subject => post.title, :body => "Check it out: http://www.blank.dev/" +  post.friendly_id  %></p>
+	 <!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style ">
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	<a class="addthis_button_tweet"></a>
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+<!-- AddThis Button END -->
 	 </footer>
 </article>
 <!-- END posts/_post.html.erb -->
