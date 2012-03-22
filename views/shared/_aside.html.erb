@@ -4,6 +4,10 @@
 	<%= render :partial => '/shared/subNav' %>
 	<% elsif @posts.nil? == false || @post.nil? == false %>
 	<%= render :partial => '/shared/subNav_news' %>
+	<% elsif @profiles.nil? == false %>
+	<%= render :partial => '/shared/subNav_news' %>
+	<% else %>
+	<%= render :partial => '/shared/subNav_news' %>
 	<% end %>
 </aside>
 <!-- END shared/_aside.html.erb -->

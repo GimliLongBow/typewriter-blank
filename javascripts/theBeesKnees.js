@@ -4,20 +4,23 @@
 * Copyright: {year}
 *
 * This file does everything!
-*/ 
+*/
 
-/** 
+/**
 * Global variables.
 */
 
 var urlParams = {};
 
-/** 
+/**
 * Initial document.ready call.
 * All default page load actions here.
 */
 $(function() {
-	$('#id').on('click', clickHandler); // Preferred click listener format as of jQuery 1.7.
+	// $('#id').on('click', clickHandler); // Preferred click listener format as of jQuery 1.7.
+
+	$('.external').attr( "target", "_blank" );
+	$('.trackOutbound').on('click', outBoundClicked);
 });
 
 
@@ -33,6 +36,26 @@ clickHandler = function(event) {
 	event.stopPropagation(); // Use this or return false; to cancel default event.
 }
 
+/**
+ * Grabs info about outbound links and sends to Google Analytics
+ */
+outBoundClicked = function(e) {
+	linkHref = this.href;
+	t = ( ($(this).attr('target') == '_blank') ? true : false );
+	c = ( $(this).is('.external') ? true : false );
+	newWindow = ( t || c ? true : false );
+
+	_gat._getTrackerByName()._trackEvent('Outbound Links', linkHref);
+	if (newWindow) {
+		setTimeout(function(){
+			window.open(linkHref, '_blank');
+		}, 100);
+	} else {
+		setTimeout('document.location = "' + linkHref + '"', 100);
+	}
+
+	return false;
+}
 
 /***************
  * General functions.

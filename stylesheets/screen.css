@@ -258,7 +258,7 @@ nav ul li a {
 
 /*
 ==========================================================================================
-NAVIGATION
+BLOG
 ==========================================================================================
 */
 
@@ -279,6 +279,24 @@ NAVIGATION
 	margin:5% 0 5%;
 	}
 
+
+
+/*
+==========================================================================================
+PROFILES
+==========================================================================================
+*/
+
+.profile {
+	padding:0 0 5%;
+	border-bottom:3px dotted #555;
+	margin:0 0 5%;
+	}
+
+.profile:last-child {border-bottom:none;}
+
+
+
 /*
 ==========================================================================================
 TYPEWRITER - REQUIRED
@@ -287,26 +305,42 @@ TYPEWRITER - REQUIRED
 
 /* Image styles. */
 /* ================================================================================== */
-div.left {float:left; margin:9px 15px 15px 0;}
-div.right {float:right; margin:9px 0 15px 15px;}
-div.full {margin:15px 0;}
-div.center{margin:15px 0; text-align:center;}
+div.left {float:left; margin:0 15px 15px 0;}
+div.right {float:right; margin:0 0 15px 15px;}
+div.full {margin:0 0 15px 0;}
+div.center {margin:15px 0; text-align:center;}
+
+div.left,
+div.right {
+	width:270px;
+	}
+
 
 div.left img,
 div.right img,
 div.full img,
-div.center img {margin:0;}
+div.center img {
+	width:100%;
+	margin:0;
+	}
 
+.captionated .caption {
+	display:inline-block;
+	padding:5px 0;
+	font-size:.9em;
+	font-style:italic;
+	color:#444;
+	}
 
 /* Comment styles. */
 /* ================================================================================== */
-.single #addComment {float:right; margin:0 14px 20px 0; width:200px;}
+.show.posts #addComment {float:right; margin:0 14px 20px 0; width:200px;}
 
-.single #addComment #comment_body,
-.single #addComment #comment_email,
-.single #addComment #comment_author {margin:5px 0; width:200px;}
-.single #addComment #comment_body {height:200px;}
-.single #addComment h4 {margin:0; font-size:14px;}
+.show.posts #addComment #comment_body,
+.show.posts #addComment #comment_email,
+.show.posts #addComment #comment_author {margin:5px 0; width:200px;}
+.show.posts #addComment #comment_body {height:200px;}
+.show.posts #addComment h4 {margin:0; font-size:14px;}
 
 #commentHeading {}
 
