@@ -1,0 +1,16 @@
+<!-- BEGIN shared/_scripts.html.erb -->
+<!-- Libraries -->
+<!--[if lt IE 9]>
+  <script src="/themes/typewriterdemo/javascripts/libraries/html5.js"></script>
+<![endif]-->
+
+<% #enable these as needed %>
+<%= theme_javascript_include_tag 'libraries/jquery' %>
+<% theme_javascript_include_tag 'libraries/jquery', 'libraries/modernizr', 'libraries/swfobject' %>
+<!-- Theme support. -->
+<% #enable these as needed %>
+<%= theme_javascript_include_tag 'theBeesKnees' %>
+<%= raw(google_analytics) %>
+
+<%= yield :footer %>
+<!-- END shared/_scripts.html.erb -->

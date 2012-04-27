@@ -1,16 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 	<!-- LAYOUT posts.html.erb -->
 	<title>Blog</title>
 	<%= meta_tags(:html5 => true) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body class="<%= @current_action %> <%= @current_controller %>">
-	<%= render :partial => '/shared/primaryNav' %>
-	<%= render :partial => '/shared/subNav' %>
-	
-	<h1>Blog</h1>
-	
-	<%= yield %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
+
+		<section class="global">
+			<h1>Blog</h1>
+
+			<%= yield %>
+		</section>
+
+		<%= render :partial => '/shared/aside' %>
+
+		<%= render :partial => '/shared/footer' %>
+	</div><!-- end #wrapper -->
+
+	<%= render :partial => '/shared/scripts' %>
 </body>
 </html>

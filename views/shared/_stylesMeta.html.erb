@@ -1,0 +1,15 @@
+<!-- BEGIN shared/_stylesMeta.html.erb -->
+<%= theme_stylesheet_link_tag 'screen' %>
+
+<%= auto_discovery_link_tag(:atom, "/blog/feed.atom") %>
+<%= auto_discovery_link_tag(:rss, "/blog/feed.rss") %>
+
+<link href="/themes/typewriterdemo/images/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/themes/typewriterdemo/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/themes/typewriterdemo/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/themes/typewriterdemo/images/apple-touch-icon-precomposed.png">
+
+<meta property="fb:page_id" content="149990335028642" />
+
+<%= yield :head %>
+<!-- END shared/_stylesMeta.html.erb -->

@@ -1,4 +1,4 @@
-<!-- BEGIN tag.html.erb -->
+<!-- BEGIN posts/tag.html.erb -->
 <% content_for :recentPosts do %>
 	<% recentPosts = current_account.posts.recent_posts(current_account) %>
 	<!-- Cached recent posts. -->
@@ -17,9 +17,19 @@
 	</ul>
 <% end %>
 
+<% content_for :footer do %>
+<script type="text/javascript">
+	var addthis_config = {
+		"data_track_addressbar": true,
+		data_ga_property: '<%= current_account.ga_profile %>',
+		data_ga_social: true
+	};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f6a216627f69242"></script>
+<% end %>
+
 <%= render :partial => @posts %>
 
 <% if @posts.total_pages > 1 %>
 <p>View <%= will_paginate @posts, :previous_label => "newer", :next_label => "older", :separator => " or ", :page_links => false, :container => false %> posts.</p>
 <% end %>
-<!-- END tag.html.erb -->
+<!-- END posts/tag.html.erb -->

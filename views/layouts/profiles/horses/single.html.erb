@@ -1,15 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<!-- LAYOUT horses/single.html.erb -->
 	<title><%= @profile.name %></title>
 	<%= meta_tags(:html5 => true) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body>
-	<%= render :partial => '/shared/primaryNav' %>
-	
-	<%= render :partial => '/shared/subNav' %>
-	
-	<%= yield %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
+
+		<section class="global">
+			<%= yield %>
+		</section>
+
+		<%= render :partial => '/shared/aside' %>
+
+		<%= render :partial => '/shared/footer' %>
+
+		<%= render :partial => '/shared/scripts' %>
+	</div>
 </body>
 </html>

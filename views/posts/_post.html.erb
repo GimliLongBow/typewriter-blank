@@ -1,20 +1,40 @@
-<!-- BEGIN _post.html.erb -->
-<%
-commentCount = post.comments.count
+<!-- BEGIN posts/_post.html.erb -->
+<article>
+	<%
+	commentCount = post.comments.count
 
-if commentCount == 1
-	commentsLink = "Comment"
-else
-	commentsLink = "Comments"
-end
-%>
+	if commentCount == 1
+		commentsLink = "Comment"
+	else
+		commentsLink = "Comments"
+	end
+	%>
+	<header>
+		<h3><%= link_to post.title, blog_path(post) %></h3>
+		<p class="postDate"><%=h post.created_at.to_formatted_s(:basic_timestamp) %></p>
+	</header>
 
-<p class="postDate"><%=h post.created_at.to_formatted_s(:basic_timestamp) %></p>
-<h3><%= link_to post.title, blog_path(post) %></h3>
-<div class="post">
-	<div class="postBody"><%= raw post.body %></div>
-	
-	<div class="postFooter">Posted By <%=h post.user.first_name %> at <%=h post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <%= link_to commentsLink, blog_url(post, :anchor => "commentHeading")
-	 %> | <%= mail_to "", "Share This Story", :subject => post.title, :body => "Check it out: http://www.blank.dev/" +  post.friendly_id  %></div>
-</div>
-<!-- END _post.html.erb -->
+	<%= raw post.body %>
+
+	<footer>
+		<%
+		tags = post.tags_from(current_account)
+		unless tags.empty? %>
+		<p>tags
+			<% tags.each do |tag| %>
+			<a href="/blog/tagged/<%= to_permalink(tag) %>"><%= tag %></a>
+			<% end %></p>
+		<% end %>
+		<p>Posted By <%=h post.user.first_name %> at <%=h post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <%= link_to commentsLink, blog_url(post, :anchor => "commentHeading")
+	 %> | <%= mail_to "", "Share This Story", :subject => post.title, :body => "Check it out: " + current_account.url +  post.friendly_id  %></p>
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style ">
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count" fb:like:href="<%= current_account.url+blog_path(post) %>"></a>
+		<a class="addthis_button_tweet" tw:url="<%= current_account.url+blog_path(post) %>" tw:text="<%= post.title %>" tw:via="ronningendesign"></a>
+		<a class="addthis_button_google_plusone" g:plusone:size="medium" g:plusone:href="<%= current_account.url+blog_path(post) %>" g:plusone:content="<%= post.title %>"></a>
+		<a class="addthis_counter addthis_pill_style" addthis:url="<%= current_account.url+blog_path(post) %>" addthis:title="<%= post.title %>"></a>
+	</div>
+	<!-- AddThis Button END -->
+	 </footer>
+</article>
+<!-- END posts/_post.html.erb -->

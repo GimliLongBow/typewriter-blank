@@ -1,19 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 	<!-- LAYOUT single.html.erb (single blog post) -->
 	<%= page_title(@post, 'Ronningen Design', ',') %>
 	<%= meta_tags(:html5 => true) %>
 	<%= description(@post) %>
 	<%= key_phrases(@post) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body id="<%= @post.friendly_id %>" class="<%= @current_action %> <%= @current_controller %>">
-	<%= render :partial => '/shared/primaryNav' %>
-	
-	<%= render :partial => '/shared/subNav' %>
-	
-	<h1><%= @post.title %></h1>
-	
-	<%= yield %>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
+
+		<section class="global">
+			<h1><%= @post.title %></h1>
+
+			<%= yield %>
+		</section>
+
+		<%= render :partial => '/shared/aside' %>
+
+		<%= render :partial => '/shared/footer' %>
+	</div>
+
+	<%= render :partial => '/shared/scripts' %>
 </body>
 </html>

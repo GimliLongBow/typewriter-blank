@@ -1,4 +1,4 @@
-<!-- BEGIN archives.html.erb -->
+<!-- BEGIN posts/archives.html.erb -->
 <% content_for :recentPosts do %>
 	<% recentPosts = current_account.posts.recent_posts(current_account) %>
 	<!-- Cached recent posts. -->
@@ -17,7 +17,17 @@
 	</ul>
 <% end %>
 
+<% content_for :footer do %>
+<script type="text/javascript">
+	var addthis_config = {
+		"data_track_addressbar": true,
+		data_ga_property: '<%= current_account.ga_profile %>',
+		data_ga_social: true
+	};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f6a216627f69242"></script>
+<% end %>
+
 <h2>Archives for <%= @date.strftime("%B, %Y") %></h2>
 
 <%= render :partial => @posts %>
-<!-- END archives.html.erb -->
+<!-- END posts/archives.html.erb -->

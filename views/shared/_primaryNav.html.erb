@@ -1,9 +1,42 @@
-<!-- BEGIN _primaryNav.html.erb -->
-<div id="primaryNav">
-	<ul>
+<!-- BEGIN shared/_primaryNav.html.erb -->
+<% unless defined? parent %>
 	<% current_account.pages.roots.each do |page| %>
-		<li><%= link_to_path page.title, page %></li>
+		<% unless @page.nil?
+			if page.friendly_id == @page.friendly_id || @page.ancestor_ids.include?(page.id)
+				current = 'current'
+			else
+				current = ''
+			end
+		end %>
+	<li class="<%= current %>"><%= link_to_path page.title, page %>
+		<% if defined? nested && page.has_children? %>
+			<ul><%= render :partial => "/shared/primaryNav", :locals => { :nested => true, :parent => page } %></ul>
+		<% end %></li>
+		<% current = nil %>
 	<% end %>
-	</ul>
-</div>
-<!-- END _primaryNav.html.erb -->
+<% else %>
+	<% parent.published_children.each do |page| %>
+		<% unless @page.nil?
+			if page.friendly_id == @page.friendly_id || @page.ancestor_ids.include?(page.id)
+				current = 'current'
+			else
+				current = ''
+			end
+		else
+			current = ''
+		end
+
+		if page.has_children?
+			hasKids = ' hasKids'
+		else
+			hasKids = ''
+		end
+		%>
+	<li class="<%= current + hasKids %>"><%= link_to_path page.title, page %>
+		<% if page.has_children? %>
+			<ul><%= render :partial => "/shared/primaryNav", :locals => { :nested => true, :parent => page } %></ul>
+		<% end %></li>
+		<% current = nil %>
+	<% end %>
+<% end %>
+<!-- END shared/_primaryNav.html.erb -->

@@ -6,7 +6,7 @@
 	<%= meta_tags(:html5 => true) %>
 	<%= description(@page) %>
 	<%= key_phrases(@page) %>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 
 	<script type="text/javascript">
 		$(function(){
@@ -26,47 +26,52 @@
 	</script>
 </head>
 <body id="<%= @id %>">
-	<%= render :partial => '/shared/primaryNav' %>
-	
-	<%= render :partial => '/shared/subNav' %>
-	
-	<h1><%= @page.title %></h1>
-	
-	<%= yield %>
-	
-	
-	<div id="retrievePassword" style="display:none;">
-		<h1>Forgot Password</h1>
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
 
-		<p>Enter your password below. If we have it, you'll get an email with instructions to get you on your way!</p>
-	</div>
+		<section class="global">
+			<%= yield %>
 
-	<div id="passwordSent" style="display:none;">
-		<h1>Password Sent!</h1>
+			<div id="retrievePassword" style="display:none;">
+				<h1>Forgot Password</h1>
 
-		<p>Success. You will be receiving an email with instructions shortly.</p>
-	</div>
+				<p>Enter your password below. If we have it, you'll get an email with instructions to get you on your way!</p>
+			</div>
 
-	<div id="passwordNotSent" style="display:none;">
-		<h1>Email <em>not</em> found!</h1>
+			<div id="passwordSent" style="display:none;">
+				<h1>Password Sent!</h1>
 
-		<p>The email address you entered was not found. Please try again.</p>
-	</div>
+				<p>Success. You will be receiving an email with instructions shortly.</p>
+			</div>
 
-	<div id="badLogin">
-		<h1><%= @page.title %></h1>
-		<%= yield %>
-	</div>
+			<div id="passwordNotSent" style="display:none;">
+				<h1>Email <em>not</em> found!</h1>
 
-	<div id="forgotPasswordWrapper">
-		<form action="http://{campname}.campintouch.com/v2/RemoteLogin.aspx" method="post" id="forgotPassowrd">
-			<input type="hidden" value="true" name="remotePassword" id="remotePassword">
-			<input type="hidden" value="{redirectURL}" name="redirectUrl" id="redirectUrl">
+				<p>The email address you entered was not found. Please try again.</p>
+			</div>
 
-			<input type="text" id="email" name="email">
+			<div id="badLogin">
+				<h1><%= @page.title %></h1>
+				<%= yield %>
+			</div>
 
-			<input id="login_btn" type="submit" value="submit" name="Submit">
-		</form>
-	</div>
+			<div id="forgotPasswordWrapper">
+				<form action="http://{campname}.campintouch.com/v2/RemoteLogin.aspx" method="post" id="forgotPassowrd">
+					<input type="hidden" value="true" name="remotePassword" id="remotePassword">
+					<input type="hidden" value="{redirectURL}" name="redirectUrl" id="redirectUrl">
+
+					<input type="text" id="email" name="email">
+
+					<input id="login_btn" type="submit" value="submit" name="Submit">
+				</form>
+			</div>
+		</section>
+
+		<%= render :partial => '/shared/aside' %>
+
+		<%= render :partial => '/shared/footer' %>
+
+		<%= render :partial => '/shared/scripts' %>
+	</div><!-- end #wrapper -->
 </body>
 </html>

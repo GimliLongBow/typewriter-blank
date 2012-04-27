@@ -1,3 +1,300 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, address, cite, em, img, q, strong, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, canvas, embed, footer, header, hgroup, nav, section, aside, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	}
+
+input, textarea {	font-family: Verdana, sans-serif }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, footer, header, hgroup, nav, section {
+	display: block;
+	}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+
+
+/*
+==========================================================================================
+BOILER PLATE
+==========================================================================================
+*/
+
+body {
+	background:url(/themes/typewriterdemo/images/bg.jpg) 0 0 no-repeat fixed;
+	background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:100% cover;
+    font-family:Helvetica, Arial, sans-serif;
+    color:#111;
+	}
+
+#wrapper {
+	width:1000px;
+	margin:0 auto;
+	}
+
+header.global,
+footer.global {
+	width:96%;
+	padding:2%;
+	}
+
+header.global {
+	background:#4596e2 url(/themes/typewriterdemo/images/blueFuzz.png) left top repeat;
+	background:
+		-moz-linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255, 0) 60%) no-repeat 0 0,
+		url(/themes/typewriterdemo/images/blueFuzz.png) repeat left top;
+	background:
+		-webkit-gradient(linear,center top, center 145, from(rgba(255,255,255,.4)), to(rgba(255,255,255,0)))  no-repeat 0 0,
+		url(/themes/typewriterdemo/images/blueFuzz.png) repeat left top;
+	background:
+		linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255, 0) 60%) no-repeat 0 0,
+		url(/themes/typewriterdemo/images/blueFuzz.png) repeat left top;
+	}
+	header.global a#logo {
+		display:block;
+		margin:0 0 2%;
+		}
+	header.global nav {
+		background: #9ecefb;
+		height:41px;
+		-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		}
+		header.global nav ul {
+			list-style: none;
+			}
+			header.global nav ul li {
+				float: left;
+				}
+				header.global nav ul li a {
+					line-height:20px;
+					}
+
+
+section.global {
+	float:right;
+	min-height:300px;
+	width:65.8%;
+	padding:2.12%;
+	background-color:#fff;
+ 	background:url(/themes/typewriterdemo/images/insetTop.png) repeat-x rgba(255,255,255,.6);
+	}
+
+
+aside.global {
+	width:25.8%;
+	padding:2.1% 2.1% 0 2.1%;
+ 	background: url(/themes/typewriterdemo/images/darkBlueFuzz.png) 0 0 #135899;
+	color:#fff;
+	}
+	aside.global nav {
+		background: #9ecefb;
+		margin:0 0 5% 0;
+		}
+		aside.global nav ul {
+			list-style: none;
+			}
+			aside.global nav ul li {
+				}
+				aside.global nav ul li a {
+					}
+
+
+footer.global {
+	clear:both;
+	background:url(/themes/typewriterdemo/images/blueFuzz.png) 0 0 #4596e2;
+	}
+	footer.global nav {
+		background: #9ecefb;
+		height:41px;
+		-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		box-shadow: inset 1px 1px 1px rgba(0,0,0,.5);
+		}
+		footer.global nav ul {
+			list-style: none;
+			}
+			footer.global nav ul li {
+				float: left;
+				}
+				footer.global nav ul li a {
+					line-height:22px;
+					}
+
+.clear {clear:both;}
+
+
+
+/*
+==========================================================================================
+NAVIGATION
+==========================================================================================
+*/
+
+nav ul {
+	position:relative;
+	background: #9ecefb;
+	z-index:3;
+	}
+	nav ul li {
+		position:relative;
+		}
+		nav ul ul {
+			display:none;
+			}
+			nav ul ul li,
+			aside ul > li {
+				float:none !important;
+				border-bottom:1px dotted #eef7ff;
+				}
+			nav ul ul li:last-child,
+			aside ul > li:last-child {border-bottom:none;}
+	nav ul > li:hover > ul {
+		display:block;
+		position:absolute;
+		top:41px;
+		left:0px;
+		min-width:230px;
+		padding:0;
+		-moz-box-shadow: 0 3px 2px rgba(0,0,0,.4);
+		-webkit-box-shadow: 0 3px 2px rgba(0,0,0,.4);
+		box-shadow: 0 3px 3px rgba(0,0,0,.4);
+		background-color: #9ECEFB;
+		}
+		nav ul > li:hover > ul > li:hover ul {
+			top:0;
+			left:230px;
+			-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+			-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+			box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+			background-color: #9ECEFB;
+			}
+			nav ul > li:hover > ul > li:hover ul li,
+			aside ul > li ul > li:last-child {border-left:1px dotted #eef7ff}
+
+	aside nav ul {position: static;}
+	aside nav ul > li:hover > ul {
+		display:block;
+		position:absolute;
+		top:0;
+		left:258px;
+		-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+		-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.4);
+		box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+		}
+
+nav li.hasKids > a {
+	background:url(/themes/typewriterdemo/images/hasKids.png) right center no-repeat;
+	}
+
+/*
+==========================================================================================
+TEXT and RELATED
+==========================================================================================
+*/
+
+h1 {
+	font-size:3em;
+	margin:0 0 .5em;
+	font-weight:bold;
+	color:#c4402a;
+	}
+
+h2 {
+	font-size:2em;
+	margin:0 0 .5em;
+	color:#c4402a;
+	}
+
+h3 {
+	font-size:1.4em;
+	margin:0 0 .5em;
+	color:#c4402a;
+	}
+
+h4 {
+	font-size:1.1em;
+	margin:0 0 .5em;
+	color:#c4402a;
+	}
+
+p {
+	margin:0 0 1.5em;
+	}
+	section.global p:last-child {margin:0}
+
+a {color:#C4402A;}
+
+nav ul li a {
+	display:block;
+	padding:12px 15px;
+	font-weight:bold;
+	font-size:.8em;
+	text-transform:uppercase;
+	text-decoration: none;
+	color: #135899;
+	-webkit-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	-moz-text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	text-shadow:-1px 1px 0 rgba(255,255,255,.4);
+	}
+	nav ul li a:hover,
+	nav ul li.current > a {
+		color:#fff;
+		-webkit-text-shadow:-1px 1px 0 rgba(0,0,0,.4);
+		-moz-text-shadow:-1px 1px 0 rgba(0,0,0,.4);
+		text-shadow:-1px 1px 0 rgba(0,0,0,.4);
+		}
+
+
+
+/*
+==========================================================================================
+BLOG
+==========================================================================================
+*/
+
+.posts article {
+	padding:0 0 5%;
+	border-bottom:3px dotted #555;
+	margin:0 0 5%;
+	}
+.posts #postListing article:last-child {
+	padding:0;
+	border-bottom:none;
+	margin:0;
+	}
+
+#pagination {
+	padding:5% 0 0;
+	border-top:3px dotted #555;
+	margin:5% 0 5%;
+	}
+
+
+
+/*
+==========================================================================================
+PROFILES
+==========================================================================================
+*/
+
+.profile {
+	padding:0 0 5%;
+	border-bottom:3px dotted #555;
+	margin:0 0 5%;
+	}
+
+.profile:last-child {border-bottom:none;}
+
 
 
 /*
@@ -8,26 +305,42 @@ TYPEWRITER - REQUIRED
 
 /* Image styles. */
 /* ================================================================================== */
-div.left {float:left; margin:9px 15px 15px 0;}
-div.right {float:right; margin:9px 0 15px 15px;}
-div.full {margin:15px 0;}
-div.center{margin:15px 0; text-align:center;}
+div.left {float:left; margin:0 15px 15px 0;}
+div.right {float:right; margin:0 0 15px 15px;}
+div.full {margin:0 0 15px 0;}
+div.center {margin:15px 0; text-align:center;}
+
+div.left,
+div.right {
+	width:270px;
+	}
+
 
 div.left img,
 div.right img,
 div.full img,
-div.center img {margin:0;}
+div.center img {
+	width:100%;
+	margin:0;
+	}
 
+.captionated .caption {
+	display:inline-block;
+	padding:5px 0;
+	font-size:.9em;
+	font-style:italic;
+	color:#444;
+	}
 
 /* Comment styles. */
 /* ================================================================================== */
-.single #addComment {float:right; margin:0 14px 20px 0; width:200px;}
+.show.posts #addComment {float:right; margin:0 14px 20px 0; width:200px;}
 
-.single #addComment #comment_body,
-.single #addComment #comment_email,
-.single #addComment #comment_author {margin:5px 0; width:200px;}
-.single #addComment #comment_body {height:200px;}
-.single #addComment h4 {margin:0; font-size:14px;}
+.show.posts #addComment #comment_body,
+.show.posts #addComment #comment_email,
+.show.posts #addComment #comment_author {margin:5px 0; width:200px;}
+.show.posts #addComment #comment_body {height:200px;}
+.show.posts #addComment h4 {margin:0; font-size:14px;}
 
 #commentHeading {}
 

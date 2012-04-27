@@ -1,4 +1,4 @@
-<!-- BEGIN show.html.erb -->
+<!-- BEGIN posts/show.html.erb -->
 <% content_for :recentPosts do %>
 	<% recentPosts = current_account.posts.recent_posts(current_account) %>
 	<!-- Cached recent posts. -->
@@ -17,9 +17,18 @@
 	</ul>
 <% end %>
 
+<% content_for :footer do %>
+<!-- page spesific -->
+<script type="text/javascript" src="http://files.websitesthatdostuff.com/typewriter/js/jquery.validate.min.js"></script>
+<%= javascript_include_tag 'comments' %>
 
-<% content_for :head do %>
-	<%= javascript_include_tag 'comments' %>
+<script type="text/javascript">
+	var addthis_config = {
+		"data_track_addressbar": true,
+		data_ga_property: '<%= current_account.ga_profile %>',
+		data_ga_social: true
+	};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f6a216627f69242"></script>
 <% end %>
 
 <%
@@ -31,25 +40,7 @@ else
 	commentsLink = "Comments"
 end
 %>
-
-<p class="postDate"><%=h @post.created_at.to_formatted_s(:basic_timestamp) %></p>
-<h3><%= @post.title %></h3>
-<div class="post">
-	<div class="postBody"><%= raw @post.body %></div>
-
-	<% 
-	tags = @post.tags_from(current_account)
-	unless tags.empty? %>
-	<p>tags 
-		<% tags.each do |tag| %>
-		<a href="/blog/tagged/<%= to_permalink(tag) %>"><%= tag %></a>
-		<% end %>
-	</p>
-	<% end %>
-
-	<div class="postFooter">Posted By <%=h @post.user.first_name %> at <%=h @post.created_at.to_formatted_s(:justTime_timestamp) %> | <%= commentCount %> <a href="#commentHeading"><%= commentsLink %></a> |
-	<%= mail_to "", "Share This Story", :subject => @post.title, :body => "Check it out: http://www.blank.dev/" + @post.friendly_id.to_s  %></div>
-</div>
+<%= render :partial => @post %>
 
 <h3>Comments</h3>
 <%= render :partial => 'addComment', :locals => { :comment => @comment, :post => @post } %>
@@ -60,8 +51,8 @@ end
 if commentCount == 0
 	render :partial => 'noComments'
 else
- 	render :partial => 'comment', :collection => post.comments, :as => :comment
+	render :partial => 'comment', :collection => post.comments, :as => :comment
 end
 %>
 </ol>
-<!-- END show.html.erb -->
+<!-- END posts/show.html.erb -->

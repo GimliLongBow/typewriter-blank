@@ -9,17 +9,24 @@ end
 <html lang="en">
 <head>
 	<title><%= @status %> - A Systemic Problem | Camp Name Here </title>
-	<%= render :partial => '/shared/scriptsStylesMeta' %>
+	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body id="error">
+	<div id="wrapper">
+		<%= render :partial => '/shared/header' %>
 
-	<%= render :partial => '/shared/primaryNav' %>
-	
-	<%= render :partial => '/shared/subNav' %>
+		<section class="global">
+			<h1>That's a <%= @status %> - <%= message %></h1>
+			<p>Sorry about that. May we suggest the <a href="/">home page</a> or <a href="/site-map">site map</a>?</p>
 
-	<h1>That's a <%= @status %> - <%= message %></h1>
-	<p>Sorry about that. May we suggest the <a href="/">home page</a> or <a href="/site-map">site map</a>?</p>
+			<%= yield %>
+		</section>
 
-	<%= yield %>
+		<%= render :partial => '/shared/aside' %>
+
+		<%= render :partial => '/shared/footer' %>
+
+		<%= render :partial => '/shared/scripts' %>
+	</div><!-- end #wrapper -->
 </body>
 </html>
