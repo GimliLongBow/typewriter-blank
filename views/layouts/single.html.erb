@@ -6,6 +6,11 @@
 	<%= meta_tags(:html5 => true) %>
 	<%= description(@post) %>
 	<%= key_phrases(@post) %>
+
+	<%= og_description(@post) %>
+	<%= og_title(@post) %>
+	<%= og_image(@post, "/themes/typewriter-blank/images/og-logo.jpg") %>
+
 	<%= render :partial => '/shared/stylesMeta' %>
 </head>
 <body id="<%= @post.friendly_id %>" class="<%= @current_action %> <%= @current_controller %>">

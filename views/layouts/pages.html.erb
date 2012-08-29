@@ -7,10 +7,10 @@
 	<%= description(@page) %>
 	<%= key_phrases(@page) %>
 
-	<!-- ANDREW - can we set up something like we have for the seo elements for :og tags? it can be the same info coming in as for seo for now, btu in the future we may want to be able edit it independently. We can talk... - Steve -->
-	<meta property="og:title" content="{{title}}" />
-	<meta property="og:description" content="{{description}}" />
-	<meta property="og:image" content="/themes/typewriter-blank/images/og-logo.jpg" />
+	<!-- OpenGraph Helpers -->
+	<%= og_description(@page) %>
+	<%= og_title(@page) %>
+	<%= og_image(@page, "/themes/typewriter-blank/images/og-logo.jpg") %>
 
 	<%= render :partial => '/shared/stylesMeta' %>
 </head>
