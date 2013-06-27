@@ -1,0 +1,11 @@
+<%
+slideshowContent = ""
+owner.slideshow.photos.each do |photo|
+	slideshowContent << image_tag(photo.image.url(size))
+end
+%>
+<notextile>
+<div id="slides">
+<%= slideshowContent %>
+</div>
+</notextile>
